@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SupplierRequest;
 use Illuminate\Http\Request;
 use App\Models\Model\Suppliers;
 use Image;
@@ -28,14 +29,9 @@ class SupplierController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SupplierRequest $request)
     {
-        $validateData = $request->validate([
-         'name' => 'required|unique:suppliers|max:255',
-         'email' => 'required',
-         'phone' => 'required|unique:suppliers',
-
-        ]);
+    
 
         if ($request->photo) {
          $position = strpos($request->photo, ';');

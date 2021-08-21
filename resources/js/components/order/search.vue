@@ -6,12 +6,13 @@
 
  <div class="row">
   <router-link to="/order" class="btn btn-primary">Today Order </router-link>
-   
+
  </div>
 
 
+   <h3 class="text-center" v-if="orders.length == 0">no orders added </h3>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center"  v-if="orders.length > 0" >
       <div class="col-xl-12 col-lg-12 col-md-12">
         <div class="card shadow-sm my-5">
           <div class="card-body p-0">
@@ -57,7 +58,7 @@
 
 
 
-<div class="row">
+<div class="row"  v-if="orders.length > 0">
             <div class="col-lg-12 mb-4">
               <!-- Simple Tables -->
               <div class="card">
@@ -122,6 +123,7 @@
       if (!User.loggedIn()) {
         this.$router.push({name: '/'})
       }
+      this.searchDate();
     },
 
     data(){

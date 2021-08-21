@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Model\Category;
 use DB;
@@ -28,11 +29,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $validateData = $request->validate([
-         'category_name' => 'required|unique:categories|max:255',
-        ]);
+        
 
          $category = new Category;
          $category->category_name = $request->category_name;

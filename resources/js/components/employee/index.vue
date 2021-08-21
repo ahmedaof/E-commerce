@@ -9,12 +9,14 @@
    
  </div>
 <br>
-   <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
+   <input v-if="employees.length > 0" type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
 
 
 <br>
 
-   <div class="row">
+<h3 class="text-center" v-if="employees.length == 0">no Employee here </h3>
+
+   <div v-if="employees.length > 0" class="row">
             <div class="col-lg-12 mb-4">
               <!-- Simple Tables -->
               <div class="card">

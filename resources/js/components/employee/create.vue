@@ -29,13 +29,13 @@
           <div class="form-row">
             <div class="col-md-6">
          <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.name">
-       <!-- <small class="text-danger" v-if="!errors.name"> {{ errors.name }} </small> -->
+    <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
             </div>
 
 
      <div class="col-md-6">
          <input type="email" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Email" v-model="form.email">
-         <!-- <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small> -->
+         <small class="text-danger" v-if="errors.email"> {{ errors.email[0] }} </small>
             </div>     
             
           </div>
@@ -47,13 +47,13 @@
           <div class="form-row">
             <div class="col-md-6">
          <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Address" v-model="form.address">
-         <!-- <small class="text-danger" v-if="errors.address"> {{ errors.address[0] }} </small> -->
+         <small class="text-danger" v-if="errors.address"> {{ errors.address[0] }} </small>
             </div>
 
 
      <div class="col-md-6">
          <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Sallery" v-model="form.sallery">
-         <!-- <small class="text-danger" v-if="errors.sallery"> {{ errors.sallery[0] }} </small> -->
+         <small class="text-danger" v-if="errors.sallery"> {{ errors.sallery[0] }} </small>
             </div>     
             
           </div>
@@ -68,13 +68,13 @@
           <div class="form-row">
             <div class="col-md-6">
          <input type="date" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Joining Date" v-model="form.joining_date">
-  <!-- <small class="text-danger" v-if="errors.joining_date"> {{ errors.joining_date[0] }} </small> -->
+  <small class="text-danger" v-if="errors.joining_date"> {{ errors.joining_date[0] }} </small>
             </div>
 
 
      <div class="col-md-6">
          <input type="number" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Nid" v-model="form.nid">
-         <!-- <small class="text-danger" v-if="errors.nid"> {{ errors.nid[0] }} </small> -->
+         <small class="text-danger" v-if="errors.nid"> {{ errors.nid[0] }} </small>
             </div>     
             
           </div>
@@ -87,7 +87,7 @@
           <div class="form-row">
             <div class="col-md-6">
          <input type="number" class="form-control" id="exampleInputFirstName" placeholder="Enter Your phone Number" v-model="form.phone">
-         <!-- <small class="text-danger" v-if="errors.phone"> {{ errors.phone[0] }} </small> -->
+         <small class="text-danger" v-if="errors.phone"> {{ errors.phone[0] }} </small>
             </div>
 
 
@@ -105,7 +105,7 @@
             <div class="col-md-6">
    <input type="file" class="custom-file-input" id="customFile" name="file" @change="onFileSelected">
 
-  <!-- <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small> -->
+   <small class="text-danger" v-if="errors.photo"> {{ errors.photo[0] }} </small>
        <label class="custom-file-label" for="customFile">Choose file</label>
             </div>
 
@@ -194,7 +194,7 @@
         this.$router.push({ name: 'employee'})
         Notification.success()
        })
-        .catch()
+         .catch(error =>this.errors = error.response.data.errors)
      },
   } 
 

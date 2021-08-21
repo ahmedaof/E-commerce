@@ -5,10 +5,14 @@ namespace App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expense extends Model
+class Salary extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'details', 'amount'
-    ];
+
+    protected $guarded = [];
+
+    public function employee(){
+       $this->belongsTo(Employee::class);
+    }
 }
+

@@ -9,12 +9,12 @@
    
  </div>
 <br>
-   <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
+   <input v-if="categories.length>0" type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
 
-
+<h3 class="text-center" v-if="categories.length == 0">no categories added </h3>
 <br>
 
-   <div class="row">
+   <div class="row"  v-if="categories.length>0">
             <div class="col-lg-12 mb-4">
               <!-- Simple Tables -->
               <div class="card">

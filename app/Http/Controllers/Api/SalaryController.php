@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SalaryRequest;
 use Illuminate\Http\Request;
 use DB;
 
 
 class SalaryController extends Controller
 {
-    public function Paid(Request $request,$id){
-   
-   $ValidateData = $request->validate([
-    'salary_month' => 'required',
-   ]);
+    public function Paid(SalaryRequest $request,$id){
+
  
    $month = $request->salary_month;
    $check = DB::table('salaries')->where('employee_id',$id)->where('salary_month',$month)->first();

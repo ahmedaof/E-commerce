@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Model\Product;
@@ -33,20 +34,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $validateData = $request->validate([
-         'product_name' => 'required|max:255',
-         'product_code' => 'required|unique:products|max:255',
-         'category_id' => 'required',
-         'supplier_id' => 'required',
-         'buying_price' => 'required',
-         'selling_price' => 'required',
-         'buying_date' => 'required',
-         'product_quantity' => 'required',
-
-        ]);
-
+    
  if ($request->image) {
          $position = strpos($request->image, ';');
          $sub = substr($request->image, 0, $position);

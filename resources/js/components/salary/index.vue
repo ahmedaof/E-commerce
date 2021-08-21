@@ -5,16 +5,17 @@
   <div>
 
  <div class="row">
-  <router-link to="/given-salary" class="btn btn-primary">Pay Salary </router-link>
+  <router-link to="/pay-salary" class="btn btn-primary">Pay Salary </router-link>
    
  </div>
 <br>
-   <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
+   <input v-if="salaries.length > 0" type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
 
+<h3 class="text-center" v-if="salaries.length == 0">no Salary added </h3>
 
 <br>
 
-   <div class="row">
+   <div class="row" v-if="salaries.length > 0">
             <div class="col-lg-12 mb-4">
               <!-- Simple Tables -->
               <div class="card">

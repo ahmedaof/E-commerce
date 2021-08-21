@@ -30,11 +30,16 @@
             <div class="col-md-12">
          <label for="exampleFormControlTextarea1"><b>Expense Details</b></label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="form.details"></textarea>
+               <small class="text-danger" v-if="errors.details"> {{ errors.details[0] }} </small>
+
             </div> 
 
  <div class="col-md-12"><br>
  	<label for="exampleFormControlTextarea1"><b>Expense Amount</b></label>
          <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Amount" v-model="form.amount">
+               <small class="text-danger" v-if="errors.amount"> {{ errors.amount[0] }} </small>
+
+           
             </div> 
 
 

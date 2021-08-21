@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
- 
+    use HasFactory;
     protected $fillable = [
-        'name', 'email', 'phone','address','sallery','photo','nid','joining_date'
+        'name', 'email', 'phone','address','sallery_id','photo','nid','joining_date'
     ];
+
+    public function salary(){
+
+        $this->hasOne(Salary::class);
+    }
 }

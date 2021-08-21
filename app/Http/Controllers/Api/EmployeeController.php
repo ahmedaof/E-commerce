@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmployeeRequest;
 use Illuminate\Http\Request;
 use App\Models\Model\Employee;
 use Image;
@@ -28,14 +29,10 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     { 
      
-        $validateData = $request->validate([
-         'name' => ['required', 'string', 'max:255'],
-         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-         'phone' => ['required', 'string', 'min:6'],
-        ]);
+     
 
       if ($request->photo) {
          $position = strpos($request->photo, ';');

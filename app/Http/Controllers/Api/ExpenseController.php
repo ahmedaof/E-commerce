@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ExpenseRequest;
 use Illuminate\Http\Request;
 use App\Models\Model\Expense;
 use DB;
@@ -28,12 +29,9 @@ class ExpenseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ExpenseRequest $request)
     {
-        $validateData = $request->validate([
-         'details' => 'required',
-         'amount' => 'required',
-        ]);
+     
 
          $expense = new Expense;
          $expense->details = $request->details;

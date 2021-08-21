@@ -5,7 +5,7 @@
   <div>
 
  <div class="row">
-  <router-link to="/pay-salary/:id" class="btn btn-primary">All Employee </router-link>
+  <router-link to="/pay-salary" class="btn btn-primary">All Employee </router-link>
    
  </div>
 
@@ -63,7 +63,9 @@
      <option value="December"> December </option>
 
                        
-                      </select>   
+                      </select> 
+                          <small class="text-danger" v-if="errors.salary_month"> {{ errors.salary_month[0] }} </small>
+  
             </div>
 
 
