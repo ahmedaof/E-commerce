@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\SupplierController;
@@ -22,6 +24,19 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/me', [AuthController::class, 'me']);
+});
+
+
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth/admin'
+
+], function ($router) {
+
+    Route::post('/login', [AdminController::class, 'login'])->middleware('auth:admin');
+ 
 });
 
 

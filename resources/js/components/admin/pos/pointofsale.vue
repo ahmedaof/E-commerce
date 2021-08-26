@@ -1,4 +1,3 @@
-
 <template>
   
   <div>
@@ -230,7 +229,6 @@
         this.$router.push({name: '/'})
       }
     },
-
     created(){
     this.allProduct();
     this.allCategory();
@@ -240,7 +238,6 @@
     Reload.$on('AfterAdd',() =>{
       this.cartProduct();
     })
-
    }, 
  data(){
       return{
@@ -248,7 +245,6 @@
        pay:'',
        due:'',
        payby:'',
-
         products:[],
         categories:'',
         getproducts:[],
@@ -258,7 +254,6 @@
         errors:'',
         carts:[],
         vats:''
-
       }
     },
     computed:{
@@ -285,18 +280,14 @@
     sum += (parseFloat(this.carts[i].pro_quantity) * parseFloat(this.carts[i].product_price));      
         }
        return sum;
-
       },
-
     },
  
   methods:{
     // Cart Methods Here
   AddToCart(id){
-
    axios.get('/api/addToCart/'+id)
       .then(() => {
-
       
         Reload.$emit('AfterAdd');
         Notification.cart_success()
@@ -353,13 +344,11 @@
   orderdone(){
     let total = this.subtotal*this.vats.vat /100 + this.subtotal;
     var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
-
     axios.post('/api/orderdone',data)
        .then(() => {
           Notification.success()
          this.$router.push({name: 'home'})
        }) 
-
   },
    
     // End Cart Methods 
@@ -373,7 +362,6 @@
       .then(({data}) => (this.categories = data))
       .catch()
     },
-
     allCustomer(){
       axios.get('/api/customer/')
       .then(({data}) => (this.customers = data))
@@ -385,11 +373,8 @@
       .catch()
     } 
    
-
     }  
-
   } 
-
 </script>
 
 

@@ -9,6 +9,12 @@ use DateTime;
  
 class PosController extends Controller
 {
+
+  public function __construct(){
+     $this->middleware('auth:admin');
+  }
+ 
+
    public function GetProduct($id){
 
    	$product = DB::table('products')
